@@ -1,7 +1,7 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x27, 16, 2); //LCD 객체 선언, 안되면 당연히 I2C 주소 0x3F로 바꿔보기
+LiquidCrystal_I2C lcd(0x3F, 16, 2); //LCD 객체 선언, 안되면 당연히 I2C 주소 0x3F로 바꿔보기
 
 int but1 = 40;
 int but2 = 41;
@@ -108,6 +108,7 @@ void loop() {
   else if(but2_val == 1){ //B 눌림
     lcd.begin();
     lcd.backlight();
+    lcd.clear();
     lcd.print("BUTTON B");
     stat++;
     prev_time=millis();
@@ -116,6 +117,7 @@ void loop() {
   else if(but3_val == 1){ //C 눌림
     lcd.begin();
     lcd.backlight();
+    lcd.clear();
     lcd.print("BUTTON C");
     stat++;
     prev_time=millis();
@@ -124,6 +126,7 @@ void loop() {
   else if(but4_val == 1){ //D 눌림
     lcd.begin();
     lcd.backlight();
+    lcd.clear();
     lcd.print("BUTTON D");
     stat++;
     prev_time=millis();
