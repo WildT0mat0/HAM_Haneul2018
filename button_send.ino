@@ -66,7 +66,7 @@ void loop() {
   digitalWrite(volt, HIGH);
   int but_val = digitalRead(but);
   
-  if(but_val == HIGH){
+  if(but_val == 1){
     lcd.begin();
     lcd.backlight();
     lcd.print("BUTTON PUSHED");
