@@ -29,6 +29,13 @@ void setup() {
 
 void (* Reset)(void) = 0;
 
+void repeat(char val){
+  for(int num=0; num++; num<5){
+  Serial.write(val);
+  delay(1000);
+  }
+}
+
 void printmsg(char ch){
   lcd.clear();
   lcd.backlight();
@@ -62,25 +69,25 @@ void checkTime(char val){
 void isTeacherHere(int stat, char val){
   while(stat == 1){
     if(val == 'A'){
-      Serial.write(val);
+      repeat(val);
       delay(100);
       stat--;
       checkTime(val);
       }
     else if(val == 'B'){
-      Serial.write(val);
+      repeat(val);
       delay(100);
       stat--;
       checkTime(val);
       }
     else if(val == 'C'){
-      Serial.write(val);
+      repeat(val);
       delay(100);
       stat--;
       checkTime(val);
       }
     else if(val == 'D'){
-      Serial.write(val);
+      repeat(val);
       delay(100);
       stat--;
       checkTime(val);
@@ -103,6 +110,7 @@ void loop() {
     lcd.print("BUTTON A");
     stat++;
     prev_time=millis();
+    Serial.print("1");
     isTeacherHere(stat, 'A');
     }
   else if(but2_val == 1){ //B 눌림
@@ -112,6 +120,7 @@ void loop() {
     lcd.print("BUTTON B");
     stat++;
     prev_time=millis();
+    Serial.print("2");
     isTeacherHere(stat, 'B');
     }
   else if(but3_val == 1){ //C 눌림
@@ -121,6 +130,7 @@ void loop() {
     lcd.print("BUTTON C");
     stat++;
     prev_time=millis();
+    Serial.print("3");
     isTeacherHere(stat, 'C');
     } 
   else if(but4_val == 1){ //D 눌림
@@ -130,6 +140,7 @@ void loop() {
     lcd.print("BUTTON D");
     stat++;
     prev_time=millis();
+    Serial.print("4");
     isTeacherHere(stat, 'D');
     } 
   else{
